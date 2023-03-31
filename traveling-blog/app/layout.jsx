@@ -1,5 +1,5 @@
 import './globals.css'
-import Navbar from './components/Navbar'
+// import Navbar from './components/Navbar'
 
 export const metadata = {
   title: 'Home',
@@ -9,8 +9,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className='bg-gray-900'>
-        <Navbar/>
+      <body className='bg-gray-500'>
+        {/* <Navbar/> */}
         {children}
         </body>
     </html>
