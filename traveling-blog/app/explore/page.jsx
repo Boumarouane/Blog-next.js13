@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { compareDesc, format, parseISO } from "date-fns";
 import { allExplores } from "contentlayer/generated";
 import { getMDXComponent } from "next-contentlayer/hooks";
@@ -13,6 +14,11 @@ function PostCard(post) {
 
   return (
     <div className="mb-8">
+      <time dateTime={post.date} className="block mb-2 text-xs text-gray-600">
+        {format(parseISO(post.date), "LLLL d, yyyy")}
+      </time>
+      <Image src={post.image} alt="test"  width={700}
+      height={700}/>
       <h2 className="text-xl">
         <Link
           href={post.url}
@@ -22,9 +28,6 @@ function PostCard(post) {
           {post.title}
         </Link>
       </h2>
-      <time dateTime={post.date} className="block mb-2 text-xs text-gray-600">
-        {format(parseISO(post.date), "LLLL d, yyyy")}
-      </time>
       <div className="text-sm">
         <Content />
       </div>
@@ -41,9 +44,7 @@ export default function Explore() {
 
   return (
     <div>
-      explore
       <div className="py-8 mx-auto max-w-xl">
-        <h1 className="mb-8 text-3xl font-bold text-center">Next.js Example</h1>
 
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />

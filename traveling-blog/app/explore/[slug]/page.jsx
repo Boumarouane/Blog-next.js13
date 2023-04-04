@@ -1,6 +1,7 @@
 import { format, parseISO } from 'date-fns'
 import { allExplores } from 'contentlayer/generated'
 import { getMDXComponent } from 'next-contentlayer/hooks'
+import Image from "next/image"
 
 export const generateStaticParams = async () => allExplores.map((post) => ({ slug: post._raw.flattenedPath }))
 
@@ -21,6 +22,8 @@ const PostLayout = ({ params }) => {
           {format(parseISO(post.date), 'LLLL d, yyyy')}
         </time>
         <h1>{post.title}</h1>
+        <Image src={post.image} alt="test"  width={700}
+      height={700}/>
       </div>
       <Content />
     </article>
