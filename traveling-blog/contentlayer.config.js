@@ -10,7 +10,16 @@ const Explore = defineDocumentType(() => ({
       description: "The title of the post",
       required: true,
     },
-    image: { type: "string", required: true },
+    country : {
+      type: "string",
+      description: "The country of the post",
+      required: true,
+    },
+    thumbnail: {
+      type: "string",
+      description: "The thumbnail of the post",
+      required: true,
+    },
     date: {
       type: "date",
       description: "The date of the post",
